@@ -8,27 +8,42 @@ interface GameCardProps {
   onRemove?: (id: string) => void;
 }
 
-export default function GameCard({ game, inLibrary, onAdd, onRemove }: GameCardProps) {
+export default function GameCard({
+  game,
+  inLibrary,
+  onAdd,
+  onRemove,
+}: GameCardProps) {
   return (
-    <div className="bg-[#111] border border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all p-4 flex flex-col text-center">
+    <div className="border border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all p-4 flex flex-col text-center">
       <img
         src={game.imagenPortada || "/default-cover.jpg"}
         alt={game.titulo}
         className="w-full h-48 object-cover rounded-md mb-4"
       />
+
       <h3 className="text-lg font-bold text-white mb-1">{game.titulo}</h3>
       <p className="text-gray-400 text-sm mb-2">{game.categoria}</p>
+
       <p className="text-gray-300 text-sm mb-2">
-        <span className="font-semibold text-gray-400">Plataforma:</span> {game.plataforma}
+        <span className="font-semibold text-gray-400">Plataforma:</span>{" "}
+        {game.plataforma}
       </p>
+
       <p className="text-gray-300 text-sm mb-2">
-        <span className="font-semibold text-gray-400">Año:</span> {game.añoLanzamiento}
+        <span className="font-semibold text-gray-400">Año:</span>{" "}
+        {game.añoLanzamiento}
       </p>
+
       <p className="text-gray-300 text-sm mb-3">
-        <span className="font-semibold text-gray-400">Desarrollador:</span> {game.desarrollador}
+        <span className="font-semibold text-gray-400">Desarrollador:</span>{" "}
+        {game.desarrollador}
       </p>
+
       {game.descripcion && (
-        <p className="text-gray-400 text-xs mb-4 line-clamp-3">{game.descripcion}</p>
+        <p className="text-gray-400 text-xs mb-4 line-clamp-3">
+          {game.descripcion}
+        </p>
       )}
 
       {inLibrary ? (

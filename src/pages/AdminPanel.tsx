@@ -1,6 +1,12 @@
+import NavBar from "../components/NavBar";
+
 const AdminPanel = () => {
+
     return <div>
-        <h1 className="m-auto">Panel de Administrador</h1>
+        <div>
+            <NavBar />
+            <h1 className="m-auto">Panel de Administrador</h1>
+        </div>
     </div>
 }
 

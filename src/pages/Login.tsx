@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/useAuth";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/UseAuth";
 
 const Login: React.FC = () => {
   const { login, user } = useAuth();
@@ -23,18 +23,19 @@ const Login: React.FC = () => {
       } else {
         navigate("/dashboard");
       }
-      if (!user?.correo) {
-        alert("❌ Credenciales inválidas");
-        navigate("/login");
-      }
+
     } catch (err) {
-      setError((err as Error).message="❌ Contraseña o correo incorrecto");
+      setError((err as Error).message="❌ Correo o contraseña incorrecto");
     } finally {
       setLoading(false);
     }
   };
 
   return (
+    <div>
+      <Link to="/games" className="underline-offset ml-4 mt-4 inline-block">
+        Regresar
+      </Link>
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
@@ -80,6 +81,7 @@ const Login: React.FC = () => {
           {loading ? "Ingresando..." : "Entrar"}
         </button>
       </form>
+      </div>
     </div>
   );
 };

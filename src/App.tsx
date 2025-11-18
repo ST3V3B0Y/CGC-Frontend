@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import { AuthProvider } from "./context/authProvider";
+import { AuthProvider } from "./context/AuthProvider";
 import "./App.css";
 import "./styles/home.css";
 import "./styles/navbar.css"
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/UserDashboard";
 import AdminPanel from "./pages/AdminPanel";
 import PrivateRoute from "./components/PrivateRoute";
 

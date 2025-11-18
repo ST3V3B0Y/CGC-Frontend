@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import type { ReactNode } from "react"
 import { loginUser } from "../services/authService";
-import authContext from "./authContext";
+import authContext from "./AuthContext";
 import axios from "axios"
 import type { User } from "../types/auth";
 

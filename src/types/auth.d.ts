@@ -10,5 +10,11 @@ export interface AuthContextType {
     token: string | null;
     login: (correo: string, contraseña: string) => Promise<void>;
     logout: () => void;
-  }
+}
+
+export interface RegisterData {
+    nombre: string;
+    correo: string;
+    contraseña: string;
+}
   

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getAllGames, addToLibrary, removeFromLibrary } from "../services/gameService";
 import type { Game } from "../services/gameService";
 import GameCard from "../components/GameCard";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../context/UseAuth";
+import NavBar from "../components/NavBar";
 
 export default function Games() {
   const [games, setGames] = useState<Game[]>([]);
   const [library, setLibrary] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const { token } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,10 +29,14 @@ export default function Games() {
   }, []);
 
   const handleAdd = async (id: string) => {
-    if (!token) return alert("Debes iniciar sesión para agregar juegos.");
+    if (!token) {
+      alert("Debes iniciar sesión para agregar juegos.");
+      navigate("/login");
+      return;
+    }
     try {
       await addToLibrary(id, token);
-      setLibrary([...library, id]);
+      setLibrary((prev) => [...prev, id]);
     } catch {
       alert("Error al agregar el juego a tu biblioteca.");
     }
@@ -55,7 +62,8 @@ export default function Games() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0b0b0b] text-white px-6 py-10">
+    <div className="min-h-screen text-white px-6 py-10">
+      <NavBar />
       <h1 className="text-3xl font-bold text-center mb-8">
         Catálogo de Juegos 🎮
       </h1>

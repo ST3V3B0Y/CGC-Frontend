@@ -1,6 +1,6 @@
 .navbar {
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -12,3 +12,4 @@ ul.nav-links {
     display: flex;
     gap: 15px;
 }
+
