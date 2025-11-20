@@ -1,0 +1,62 @@
+/* Fondo general oscuro */
+.dashboard-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000814; /* muy oscuro, más elegante */
+  color: white;
+}
+
+/* Contenedor del fondo animado */
+.dashboard-animated-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Capa animada */
+.dashboard-animated-layer {
+  position: absolute;
+  inset: 0;
+
+  /* Primer color base (muy suave) */
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 230, 0, 0.25),
+    rgba(0, 0, 0, 0.92)
+  );
+
+  animation: smoothColorShift 18s ease-in-out infinite alternate;
+}
+
+@keyframes smoothColorShift {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 230, 0, 0.25),   /* amarillo muy tenue */
+      rgba(0, 0, 0, 0.92)
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 90, 255, 0.25),    /* azul suave */
+      rgba(0, 0, 0, 0.92)
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 50, 50, 0.25),   /* rojo tenue */
+      rgba(0, 0, 0, 0.92)
+    );
+  }
+}
+
+/* Contenido principal */
+.dashboard-content {
+  position: relative; /* queda encima del fondo */
+  z-index: 10;
+  padding: 2rem;
+}

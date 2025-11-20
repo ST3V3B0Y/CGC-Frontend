@@ -16,16 +16,17 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      await login(correo, contraseña);
-      alert("✅ Inicio de sesión exitoso");
-      if (user?.rol === "admin") {
-        navigate("/admin-panel");
-      } else {
-        navigate("/dashboard");
-      }
-
-    } catch (err) {
-      setError((err as Error).message="❌ Correo o contraseña incorrecto");
+        await login(correo, contraseña);
+        alert("✅ Inicio de sesión exitoso");
+        if (user?.rol === "admin") {
+          navigate("/admin-panel");
+        } else {
+          navigate("/dashboard");
+        }
+  
+      } catch (err) {
+      setError((err as Error).message = "❌ Correo o contraseña incorrecto")
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -80,8 +81,11 @@ const Login: React.FC = () => {
         >
           {loading ? "Ingresando..." : "Entrar"}
         </button>
-      </form>
+        </form>
       </div>
+      <Link to="/register" className="underline-offset mt-4 inline-block">
+          ¿Aún no tienes cuenta? Regístrate
+        </Link>
     </div>
   );
 };

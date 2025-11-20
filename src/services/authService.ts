@@ -28,7 +28,7 @@ export const registerUser = async (
   nombre: string,
   correo: string,
   contraseña: string
-): Promise<{ message: string }> => {
+): Promise<{ user: User; token: string }> => {
   try {
     const response = await axios.post(`${API_URL}/auth/register`, {
       nombre,
@@ -36,7 +36,7 @@ export const registerUser = async (
       contraseña,
     });
 
-    return response.data;
+    return response.data; 
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data?.message || "Error al registrar usuario");
@@ -44,3 +44,4 @@ export const registerUser = async (
     throw new Error("Error desconocido al registrar usuario", error instanceof Error ? { cause: error } : undefined);
   }
 };
+

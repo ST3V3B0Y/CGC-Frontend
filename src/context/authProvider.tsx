@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import type { ReactNode } from "react"
-import { loginUser } from "../services/authService";
+import type { ReactNode } from "react";
+import { loginUser, registerUser } from "../services/authService";
 import authContext from "./AuthContext";
-import axios from "axios"
+import axios from "axios";
 import type { User } from "../types/auth";
 
 interface AuthProviderProps {
@@ -37,6 +37,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const register = async (nombre: string, correo: string, contraseña: string) => {
+    try {
+      const data = await registerUser(nombre, correo, contraseña);
+
+      setUser(data.user);
+      setToken(data.token);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new Error(error.response?.data?.message || "Error al registrarse");
+      }
+      throw new Error("Error desconocido al registrarse");
+    }
+  };
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -45,7 +62,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <authContext.Provider value={{ user, token, login, logout }}>
+    <authContext.Provider value={{ user, token, login, register, logout }}>
       {children}
     </authContext.Provider>
   );

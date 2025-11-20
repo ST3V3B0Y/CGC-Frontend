@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/UserDashboard";
 import AdminPanel from "./pages/AdminPanel";
 import PrivateRoute from "./components/PrivateRoute";
+import Register from "./pages/Register";
+import { LibraryProvider } from "./context/LibraryProvider";
 
 function App() {
   return (
@@ -20,10 +22,11 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/games" element={<Games />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           {/* Rutas privadas */} 
           <Route
             path="/dashboard"
-            element={<PrivateRoute><Dashboard /></PrivateRoute>}
+            element={<LibraryProvider><PrivateRoute><Dashboard /></PrivateRoute></LibraryProvider>}
           />
           <Route
             path="/admin-panel"
