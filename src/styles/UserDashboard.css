@@ -4,7 +4,7 @@
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background: #000814; /* muy oscuro, más elegante */
+  background: #0d0d0dbf;
   color: white;
 }
 
@@ -20,7 +20,7 @@
   position: absolute;
   inset: 0;
 
-  /* Primer color base (muy suave) */
+  /* Primer color base */
   background: radial-gradient(
     circle at center,
     rgba(255, 230, 0, 0.25),
@@ -31,27 +31,8 @@
 }
 
 @keyframes smoothColorShift {
-  0% {
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 230, 0, 0.25),   /* amarillo muy tenue */
-      rgba(0, 0, 0, 0.92)
-    );
-  }
-  50% {
-    background: radial-gradient(
-      circle at center,
-      rgba(0, 90, 255, 0.25),    /* azul suave */
-      rgba(0, 0, 0, 0.92)
-    );
-  }
-  100% {
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 50, 50, 0.25),   /* rojo tenue */
-      rgba(0, 0, 0, 0.92)
-    );
-  }
+  0%   { filter: hue-rotate(0deg)   blur(60px); }
+  100% { filter: hue-rotate(360deg) blur(60px); }
 }
 
 /* Contenido principal */

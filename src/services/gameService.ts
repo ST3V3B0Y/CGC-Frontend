@@ -27,37 +27,37 @@ export const getGameById = async (gameId: string): Promise<Game> => {
   return res.data;
 };
 
-// Traer juegos por categoría
-export const getGamesByCategory = async (
-  category: string
-): Promise<Game[]> => {
-  const res = await axios.get(`${API_URL}/games/category/${category}`);
-  return res.data;
-};
+// // Traer juegos por categoría
+// export const getGamesByCategory = async (
+//   category: string
+// ): Promise<Game[]> => {
+//   const res = await axios.get(`${API_URL}/games/category/${category}`);
+//   return res.data;
+// };
 
-// Traer juegos por plataforma
-export const getGamesByPlatform = async (
-  platform: string
-): Promise<Game[]> => {
-  const res = await axios.get(`${API_URL}/games/platform/${platform}`);
-  return res.data;
-};
+// // Traer juegos por plataforma
+// export const getGamesByPlatform = async (
+//   platform: string
+// ): Promise<Game[]> => {
+//   const res = await axios.get(`${API_URL}/games/platform/${platform}`);
+//   return res.data;
+// };
 
 // Biblioteca de juegos del usuario
 export const getUserLibrary = async (token: string): Promise<Game[]> => {
   const res = await axios.get(`${API_URL}/library`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return res.data;
+  return res.data.games;
 };
 
 // Agregar juego a la biblioteca del usuario
 export const addToLibrary = async (gameId: string, token: string) => {
   const res = await axios.post(
-    `${API_URL}/library/add/`,
-    { gameId },
+    `${API_URL}/library/${gameId}`,
+    {},
     {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` }
     }
   );
   return res.data;
@@ -65,7 +65,7 @@ export const addToLibrary = async (gameId: string, token: string) => {
 
 // Eliminar juego de la biblioteca del usuario
 export const removeFromLibrary = async (gameId: string, token: string) => {
-  const res = await axios.delete(`${API_URL}/library/remove/${gameId}`, {
+  const res = await axios.delete(`${API_URL}/library/${gameId}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.data;

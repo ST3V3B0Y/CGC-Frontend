@@ -41,7 +41,10 @@ export const LibraryProvider = ({ children }: { children: React.ReactNode }) => 
       await addToLibrary(id, token);
 
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/games/${id}`
+        `${import.meta.env.VITE_API_URL}/games/${id}`,
+        // {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // }
       );
 
       setLibrary((prev) => [...prev, res.data]);

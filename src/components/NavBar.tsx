@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
+import "../styles/NavBar.css";
 
 const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
@@ -14,38 +15,32 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white px-6 py-4 flex justify-between items-center shadow-md">
-      <div className="text-xl font-semibold">
-        <Link to="/games"><img src="#" alt="#" /></Link>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/home">
+          <img src="../assets/CGCLogoCol.png" alt="CGCLogo" />
+        </Link>
       </div>
 
-      <div className="flex items-center gap-4">
-        <Link to="/games" className="hover:underline">
-          Explorar
-        </Link>
-        <Link to="/reviews" className="hover:underline">
-          Comunidad
-        </Link>
+      <div className="navbar-links">
+        <Link to="/games">Explorar</Link>
+        <Link to="/reviews">Comunidad</Link>
+
         {user ? (
           <>
-            <Link to="/dashboard" className="hover:underline">
-              Mi Panel
+            <Link to="/dashboard">Biblioteca</Link>
+            <Link to="/profile" className="navbar-username">
+              {user.nombre}
             </Link>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 px-3 py-1 rounded-lg hover:bg-red-600"
-            >
+
+            <button className="logout-btn" onClick={handleLogout}>
               Cerrar sesión
             </button>
           </>
         ) : (
-          <div>
-            <Link to="/login" className="hover:underline">
-              Iniciar sesión
-            </Link>
-            <Link to="/register" className="hover:underline">
-              Registrarse
-            </Link>
+          <div className="navbar-auth">
+            <Link to="/login">Iniciar sesión</Link>
+            <Link to="/register">Registrarse</Link>
           </div>
         )}
       </div>

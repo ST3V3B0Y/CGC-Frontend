@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import { AuthProvider } from "./context/AuthProvider";
+import { LibraryProvider } from "./context/LibraryProvider";
 import "./App.css";
 import "./styles/home.css";
 import "./styles/navbar.css"
@@ -10,7 +11,8 @@ import Dashboard from "./pages/UserDashboard";
 import AdminPanel from "./pages/AdminPanel";
 import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
-import { LibraryProvider } from "./context/LibraryProvider";
+import Profile from "./pages/Profile";
+import Reviews from "./pages/Reviews";
 
 function App() {
   return (
@@ -23,10 +25,15 @@ function App() {
           <Route path="/games" element={<Games />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/reviews" element={<Reviews />} />
           {/* Rutas privadas */} 
           <Route
             path="/dashboard"
             element={<LibraryProvider><PrivateRoute><Dashboard /></PrivateRoute></LibraryProvider>}
+          />
+          <Route
+            path="/profile"
+            element={<PrivateRoute><Profile /></PrivateRoute>}
           />
           <Route
             path="/admin-panel"

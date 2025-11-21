@@ -3,12 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useLibrary } from "../context/UseLibrary";
+import NavBar from "@/components/NavBar";
+import { Link } from "react-router-dom";
+import "../styles/UserDashboard.css"
 
 export default function Dashboard() {
   const { library, loadingLibrary, removeGame } = useLibrary();
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
+      <NavBar/>
+
       {/* Animated Background */}
       <motion.div
         className="absolute inset-0"
@@ -63,7 +68,7 @@ export default function Dashboard() {
               )}
 
               <Button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-xl mt-6">
-                <Plus size={18} /> Agregar Juego
+                <Link to="/games"><Plus size={18} /> Agregar Juego </Link>
               </Button>
             </CardContent>
           </Card>
@@ -78,7 +83,7 @@ export default function Dashboard() {
           <Card className="bg-white/5 backdrop-blur-xl border-white/10 rounded-2xl shadow-xl">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-4">Perfil</h2>
-              <p className="text-sm opacity-70">Configura tu cuenta y preferencias.</p>
+              <p className="text-sm opacity-70">Configura tu cuenta y preferencias</p>
             </CardContent>
           </Card>
         </div>

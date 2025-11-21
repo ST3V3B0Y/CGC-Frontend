@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #000000de,#000000ef, #000000 );
+}
+
+/* Fondo general */
+.games-background {
+    position: relative;
+    overflow: hidden;
+    font-family: 'system-ui', 'Arial';
+  }
+  
+.games-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  /* Gradiente inicial muy suave */
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 0, 0.20) 0%,    /* luz suave central */
+    rgba(255, 255, 0, 0.12) 20%,
+    rgba(0, 0, 0, 0.10) 55%,       /* difuminado medio */
+    rgba(0, 0, 0, 0.30) 70%,       /* sombra suave */
+    rgba(0, 0, 0, 0.55) 100%       /* borde muy difuminado */
+  );
+
+  /* Animaciones combinadas */
+  animation: 
+    colorCycle 28s linear infinite,
+    breathingLight 6s ease-in-out infinite;
+
+  /* Difuminado general aumentado */
+  filter: blur(60px);
+  opacity: 0.9;
+}
+  
+/* Ciclo de color continuo */
+@keyframes colorCycle {
+  0%   { filter: hue-rotate(0deg)   blur(60px); }
+  100% { filter: hue-rotate(360deg) blur(60px); }
+}
+
+/* Luz intermitente leve */
+@keyframes breathingLight {
+  0%   { opacity: 0.80; transform: scale(1); }
+  50%  { opacity: 0.95; transform: scale(1.03); } /* leve respiración */
+  100% { opacity: 0.80; transform: scale(1); }
+}
+  
+
+/* Título del catálogo */
+.games-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Ajustes para tarjetas */
+.games-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-loading{
+  font-family: system-ui, Arial, sans-serif;
+  color: white;
+}

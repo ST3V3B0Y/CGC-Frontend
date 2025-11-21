@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
+import "../styles/Register.css"
 
 export default function Register() {
   const { register } = useAuth();
@@ -25,37 +26,46 @@ export default function Register() {
   };
 
   return (
-    <div className="auth-container">
-      <form onSubmit={handleSubmit}>
-        
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Crear Cuenta</h2>
-        {error && (
-          <div className="bg-red-100 text-red-600 p-3 rounded mb-4 text-sm text-center">
-            {error}
-          </div>
-        )}
+    <div className="register-container">
+      <button className="back-button" onClick={() => navigate("/games")}>
+        ← Regresar
+      </button>
+      <form onSubmit={handleSubmit} className="register-card">
+
+        <h2 className="register-title">Crear Cuenta</h2>
+
+        {error && <div className="register-error">{error}</div>}
+
         <input
-          type="Name"
+          type="text"
           placeholder="Nombre"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          required />
+          className="register-input"
+          required
+        />
 
         <input
           type="email"
           placeholder="Correo"
           value={correo}
           onChange={(e) => setCorreo(e.target.value)}
-          required />
+          className="register-input"
+          required
+        />
 
         <input
           type="password"
           placeholder="Contraseña"
           value={contraseña}
           onChange={(e) => setContraseña(e.target.value)}
-          required />
+          className="register-input"
+          required
+        />
 
-        <button type="submit">Registrarse</button>
+        <button type="submit" className="register-button">
+          Registrarse
+        </button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
-import React from "react";
 import type { Game } from "../services/gameService";
+import "../styles/GameCard.css";
 
 interface GameCardProps {
   game: Game;
@@ -15,52 +15,56 @@ export default function GameCard({
   onRemove,
 }: GameCardProps) {
   return (
-    <div className="border border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all p-4 flex flex-col text-center">
+    <div className="game-card">
+      {/* Imagen del juego */}
       <img
-        src={game.imagenPortada || "/default-cover.jpg"}
+        src={game.imagenPortada || "https://i.ytimg.com/vi/xyz123/hqdefault.jpg"}
         alt={game.titulo}
-        className="w-full h-48 object-cover rounded-md mb-4"
+        className="game-card-image"
       />
 
-      <h3 className="text-lg font-bold text-white mb-1">{game.titulo}</h3>
-      <p className="text-gray-400 text-sm mb-2">{game.categoria}</p>
-
-      <p className="text-gray-300 text-sm mb-2">
-        <span className="font-semibold text-gray-400">Plataforma:</span>{" "}
-        {game.plataforma}
-      </p>
-
-      <p className="text-gray-300 text-sm mb-2">
-        <span className="font-semibold text-gray-400">Año:</span>{" "}
-        {game.añoLanzamiento}
-      </p>
-
-      <p className="text-gray-300 text-sm mb-3">
-        <span className="font-semibold text-gray-400">Desarrollador:</span>{" "}
-        {game.desarrollador}
-      </p>
-
-      {game.descripcion && (
-        <p className="text-gray-400 text-xs mb-4 line-clamp-3">
-          {game.descripcion}
+      {/* Capa con información (solo visible al hacer hover) */}
+      <div className="game-card-overlay">
+        <h3 className="game-card-title">{game.titulo}</h3>
+        <p className="game-card-text">
+          <span className="game-card-label">Categoría:</span> {game.categoria}
         </p>
-      )}
 
-      {inLibrary ? (
-        <button
-          onClick={() => onRemove?.(game._id)}
-          className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md w-full"
-        >
-          Eliminar de Biblioteca
-        </button>
-      ) : (
-        <button
-          onClick={() => onAdd?.(game._id)}
-          className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md w-full"
-        >
-          Agregar a Biblioteca
-        </button>
-      )}
+        <p className="game-card-text">
+          <span className="game-card-label">Plataforma:</span> {game.plataforma}
+        </p>
+
+        <p className="game-card-text">
+          <span className="game-card-label">Año:</span> {game.añoLanzamiento}
+        </p>
+
+        <p className="game-card-text">
+          <span className="game-card-label">Desarrollador:</span> {game.desarrollador}
+        </p>
+
+        {game.descripcion && (
+          <p className="game-card-description">{game.descripcion}</p>
+        )}
+
+        {/* Botón de agregar / remover */}
+        {inLibrary ? (
+          <button
+            onClick={() => onRemove?.(game._id)}
+            className="game-card-btn remove"
+          >
+            Eliminar de Biblioteca
+          </button>
+        ) : (
+          <button
+            onClick={() => onAdd?.(game._id)}
+            className="game-card-btn add"
+          >
+            Agregar a la Biblioteca
+          </button>
+        )}
+
+        <button className="game-card-btn review">Reseñas</button>
+      </div>
     </div>
   );
 }
