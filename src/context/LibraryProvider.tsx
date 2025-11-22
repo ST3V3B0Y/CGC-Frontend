@@ -42,9 +42,9 @@ export const LibraryProvider = ({ children }: { children: React.ReactNode }) => 
 
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/games/${id}`,
-        // {
-        //   headers: { Authorization: `Bearer ${token}` },
-        // }
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
       );
 
       setLibrary((prev) => [...prev, res.data]);

@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar";
 import { useAuth } from "../context/UseAuth";
+import "../styles/Profile.css"
 
 export default function Profile() {
     const { user } = useAuth();

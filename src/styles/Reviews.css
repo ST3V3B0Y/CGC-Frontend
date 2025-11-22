@@ -1,0 +1,117 @@
+.reviews-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding-bottom: 40px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .loading {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  
+  .reviews-list {
+    margin-bottom: 40px;
+  }
+  
+  .review-card {
+    background: #1e1e1e;
+    color: white;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .review-user {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  
+  .review-comment {
+    margin-top: 10px;
+    font-style: italic;
+  }
+  
+  .btn-delete {
+    background: #e63939;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .btn-delete:hover {
+    background: #ff4d4d;
+  }
+  
+  .review-form {
+    background: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  
+  .review-form h2 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .review-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .review-form label {
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  .review-form input,
+  .review-form select,
+  .review-form textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: #111;
+    color: white;
+  }
+  
+  .btn-add {
+    margin-top: 10px;
+    padding: 10px;
+    background: #4caf50;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .btn-add:hover {
+    background: #5fd866;
+  }
+  

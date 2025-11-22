@@ -1,4 +1,5 @@
 import type { Game } from "../services/gameService";
+import { Link } from "react-router-dom";
 import "../styles/GameCard.css";
 
 interface GameCardProps {
@@ -63,7 +64,9 @@ export default function GameCard({
           </button>
         )}
 
-        <button className="game-card-btn review">Reseñas</button>
+        <Link to={`/reviews/${game._id}`} className="game-card-btn review">
+          Reseñas
+        </Link>
       </div>
     </div>
   );

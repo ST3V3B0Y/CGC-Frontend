@@ -1,43 +1,140 @@
-/* Fondo general oscuro */
-.dashboard-wrapper {
-  position: relative;
-  min-height: 100vh;
+/* === Fondo Animado === */
+.dashboard-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  background: #0d0d0dbf;
+}
+
+.dashboard-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: colorShift 12s infinite alternate ease-in-out;
+  opacity: 0.9;
+}
+
+@keyframes colorShift {
+  0% {
+    background: radial-gradient(circle at center, rgba(255, 255, 0, 0.7), rgba(0, 0, 0, 0.9));
+  }
+  50% {
+    background: radial-gradient(circle at center, rgba(0, 119, 255, 0.7), rgba(0, 0, 0, 0.9));
+  }
+  100% {
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  }
+}
+
+/* === Contenedor Principal === */
+.dashboard-container {
+  position:relative;
+  z-index: 10;
+  padding: 2rem;
   color: white;
 }
 
-/* Contenedor del fondo animado */
-.dashboard-animated-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.dashboard-title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
-/* Capa animada */
-.dashboard-animated-layer {
-  position: absolute;
-  inset: 0;
-
-  /* Primer color base */
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 230, 0, 0.25),
-    rgba(0, 0, 0, 0.92)
-  );
-
-  animation: smoothColorShift 18s ease-in-out infinite alternate;
+/* === Tarjetas === */
+.dashboard-card {
+  margin: 2px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes smoothColorShift {
-  0%   { filter: hue-rotate(0deg)   blur(60px); }
-  100% { filter: hue-rotate(360deg) blur(60px); }
+/* === Lista de Juegos === */
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-/* Contenido principal */
-.dashboard-content {
-  position: relative; /* queda encima del fondo */
-  z-index: 10;
-  padding: 2rem;
+@media (min-width: 768px) {
+  .games-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.game-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.game-category {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* === Botón Agregar Juego === */
+.add-btn {
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  transition: 0.25s ease-in-out;
+}
+
+.add-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Botón Eliminar Juego === */
+.delete-btn{
+  padding: 5px;
+  align-items: center;
+  color: white;
+  
+}
+
+.delete-btn:hover{
+  color: rgb(27, 27, 27);
+  background: red;
+  transition: 0.5s;
+}
+
+
+/* === Botón Ir a Perfil === */
+
+.profile-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: 0.25s ease-in-out;
+}
+
+.profile-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Otros Panels === */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  font-size: 0.9rem;
+  opacity: 0.7;
 }

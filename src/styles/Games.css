@@ -9,8 +9,8 @@ body {
     position: relative;
     overflow: hidden;
     font-family: 'system-ui', 'Arial';
-  }
-  
+}
+
 .games-background::before {
   content: "";
   position: absolute;

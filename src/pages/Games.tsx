@@ -5,6 +5,7 @@ import type { Game } from "../services/gameService";
 import { useAuth } from "../context/UseAuth";
 import GameCard from "../components/GameCard";
 import NavBar from "../components/NavBar";
+import Footer from "@/components/Footer";
 import "../styles/Games.css";
 
 export default function Games() {
@@ -84,7 +85,7 @@ export default function Games() {
       <NavBar/>
       <div className="games-background min-h-screen text-white px-6 py-10">
           <h1 className="games-title">
-            LO MEJOR EN VIDEOJUEGOS 🎮
+            LO MEJOR EN VIDEOJUEGOS
           </h1>
     
           <div className="games-grid">
@@ -97,7 +98,8 @@ export default function Games() {
                 onRemove={handleRemove}
               />
             ))}
-          </div>
+        </div>
+        <Footer/>
       </div>
     </div>
   );

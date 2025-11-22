@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Reviews from "./pages/Reviews";
+import Community from "./pages/Community"
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
           <Route path="/games" element={<Games />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/reviews/:gameId" element={<Reviews />} />
           {/* Rutas privadas */} 
           <Route
             path="/dashboard"

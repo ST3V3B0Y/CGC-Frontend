@@ -48,11 +48,13 @@
   transition: 0.3s ease;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
+  transition: 1s;
 }
 
 .navbar-links a:hover {
   color: #ffd369;
   border-bottom: 2px solid #ffd369;
+  transition: 0.5s;
 }
 
 /* ----- USERNAME ----- */

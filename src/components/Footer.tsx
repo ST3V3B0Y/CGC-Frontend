@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-      <div className="min-h-screen bg-gray-100">
+      <div>
           <footer>
             <div className="p-6 bg-blue-600 text-gray text-center">
                 <p>&copy; 2025 ColGame Cloud. Todos los derechos reservados.</p>
