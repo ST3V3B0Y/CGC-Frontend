@@ -20,7 +20,7 @@
 
 /* ----- LOGO ----- */
 .navbar-logo img {
-  width: 60px;
+  padding: px;
   height: 50px;
   cursor: pointer;
   border-radius: 50px;

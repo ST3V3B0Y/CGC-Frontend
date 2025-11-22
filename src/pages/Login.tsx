@@ -46,9 +46,9 @@ const Login: React.FC = () => {
         {error && <div className="login-error">{error}</div>}
   
         <div className="mb-4">
-          <label className="login-label">Correo</label>
           <input
             type="email"
+            placeholder="Correo"
             value={correo}
             onChange={(e) => setCorreo(e.target.value)}
             className="login-input"
@@ -56,9 +56,9 @@ const Login: React.FC = () => {
         </div>
   
         <div className="mb-4">
-          <label className="login-label">Contraseña</label>
           <input
             type="password"
+            placeholder="Contraseña"
             value={contraseña}
             onChange={(e) => setContraseña(e.target.value)}
             className="login-input"

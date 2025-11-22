@@ -23,6 +23,7 @@ export interface Review {
   createdAt: string;
   updatedAt: string;
 }
+
 export interface CreateReview {
   juegoId: string;
   calificacion: number;

@@ -83,9 +83,11 @@
 /*  Inputs  */
 .register-input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem 5px;
   margin-bottom: 1rem;
   border-radius: 10px;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #5c5c5c;
   background: rgba(255, 255, 255, 0.12);
   color: white;
@@ -94,15 +96,36 @@
 }
 
 .register-input::placeholder {
+  padding: 5px;
   color: #d9d9d9;
 }
 
 .register-input:focus {
+  padding: 0.75rem;
   border-color: #4c9aff;
   box-shadow: 0 0 8px #4c9aff80;
+  align-items: center;
+  justify-content: center;
 }
 
 /*  Botón  */
+.back-button {
+  color: white;
+background: rgba(255, 255, 255, 0.275);
+border-radius: 10px;
+border: none;
+cursor: pointer;
+margin-bottom: 2rem;
+padding: 0.2rem 0.5rem;
+align-items: center;
+transition: 0.3s;
+}
+
+.back-button:hover {
+  color: rgb(1, 1, 1);
+background: rgba(255, 255, 255, 0.753);
+}
+
 .register-button {
   width: 100%;
   padding: 0.8rem;
@@ -116,8 +139,10 @@
   transition: 0.3s;
 }
 
+
 .register-button:hover {
   background: linear-gradient(90deg, #0055dd, #003399);
+  transition: 1s;
 }
 
 /* Error */

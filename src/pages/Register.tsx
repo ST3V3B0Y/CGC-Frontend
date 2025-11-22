@@ -12,6 +12,7 @@ export default function Register() {
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState("");
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
